@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value="Hello, world"/>
+
+    <div class="content">
+        <div class="pane" id="left-pane">
+            <div id="graph">
+                <ui:insert name="graph">
+                    <ui:include src="WEB-INF/template/controls.xhtml"/>
+                </ui:insert>
+            </div>
+        </div>
+        <div class="pane" id="right-pane">
+
+            <div id="controls">
+                <ui:insert name="controls">
+                    <ui:include src="WEB-INF/template/controls.xhtml"/>
+                </ui:insert>
+            </div>
+
+            <div id="table">
+                <ui:insert name="table">
+                    <ui:include src="/WEB-INF/template/table.xhtml"/>
+                </ui:insert>
+            </div>
+
+        </div>
+    </div>
+
+</f:view>
+</html>

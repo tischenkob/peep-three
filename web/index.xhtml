@@ -5,7 +5,27 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:outputStylesheet name="css/styles.css"/>
+<h:outputScript name="js/index.js"/>
+<body>
 <f:view>
-    <h:outputLabel value="Hello, world"/>
+    <ui:composition template="WEB-INF/template/layout.xhtml">
+        <ui:define name="header">
+            <div id="info-panel">
+                <div class="info-bubble">P3200 - 2000023</div>
+                <div class="info-bubble">Borisenko</div>
+                <div class="info-bubble">Tischenko</div>
+            </div>
+        </ui:define>
+        <ui:define name="left-pane">
+            <ui:include src="WEB-INF/template/clock.xhtml"/>
+        </ui:define>
+        <ui:define name="right-pane">
+            <ui:include src="WEB-INF/template/base-control.xhtml"/>
+        </ui:define>
+
+    </ui:composition>
+
 </f:view>
+</body>
 </html>

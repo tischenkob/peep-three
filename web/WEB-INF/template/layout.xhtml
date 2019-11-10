@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: bogdan
+  Date: 11/10/19
+  Time: 10:58 AM
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>Layout</title>
+    <h:outputStylesheet name="css/styles.css"/>
+    <h:outputScript name="js/jquery-3.4.1.min.js"/>
+    <h:outputScript name="js/index.js"/>
+</h:head>
+
+<h:body>
+    <ui:insert name="header">
+        header
+    </ui:insert>
+    <ui:insert name="content">
+        <div class="content">
+            <ui:insert name="left-pane">
+                <div class="pane" id="left-pane">
+                    left pane
+                </div>
+            </ui:insert>
+            <ui:insert name="right-pane">
+                <div class="pane" id="right-pane">
+                    right pane
+                </div>
+            </ui:insert>
+        </div>
+    </ui:insert>
+</h:body>
+
+</html>

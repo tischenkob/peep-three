@@ -4,4 +4,17 @@
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
     http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
+    <managed-bean>
+        <managed-bean-name>entryBean</managed-bean-name>
+        <managed-bean-class>main.java.beans.EntryBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>historyBean</managed-bean-name>
+        <managed-bean-class>main.java.beans.HistoryBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+
 </faces-config>

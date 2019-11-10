@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:inputHidden id="valueR" value="#{entryBean.r}"/>
+    <h:outputText value="R" styleClass="thTitle"/>
+    <h:panelGrid columns="6" styleClass="column">
+        <h:commandButton id="r1" value="1" type="button" styleClass="button buttonR"/>
+        <h:commandButton id="r2" value="2" type="button" styleClass="button buttonR"/>
+        <h:commandButton id="r3" value="3" type="button" styleClass="button buttonR"/>
+        <h:commandButton id="r4" value="4" type="button" styleClass="button buttonR"/>
+        <h:commandButton id="r5" value="5" type="button" styleClass="button buttonR"/>
+        <h:outputText id="errorR" title="Выберите одно из значений!" value="!" style="color:red"/>
+    </h:panelGrid>
+</f:view>
+</html>
