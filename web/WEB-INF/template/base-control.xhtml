@@ -7,8 +7,8 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:body>
-    <button id="app-link">app -></button>
-    <button id="info-button">info ?</button>
+    <h:commandLink class="base-button" action="#{navigationBean.go}" value="app ->"/>
+    <button class="base-button" id="info-button">info ?</button>
 
 </h:body>
 </html>

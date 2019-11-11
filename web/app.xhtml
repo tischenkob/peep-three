@@ -5,14 +5,12 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-
+<h:body>
     <div class="content">
         <div class="pane" id="left-pane">
             <div id="graph">
                 <ui:insert name="graph">
-                    <ui:include src="WEB-INF/template/controls.xhtml"/>
+                    <ui:include src="WEB-INF/template/graph.xhtml"/>
                 </ui:insert>
             </div>
         </div>
@@ -32,6 +30,5 @@
 
         </div>
     </div>
-
-</f:view>
+</h:body>
 </html>

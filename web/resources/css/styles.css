@@ -1,5 +1,12 @@
-#info-bubble {
-    position: absolute;
-    top: 50px;
-    visibility: visible;
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+@import 'base.css';
+@import 'colors.css';
+@import 'app.css';
+@import 'button.css';
+@import 'clock.css';
+@import 'header.css';
+@import 'table.css';
+
+.hidden {
+    visibility: hidden;
 }
