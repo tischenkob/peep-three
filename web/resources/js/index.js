@@ -1,3 +1,5 @@
+//ВЕЧНАЯ И НЕПРИКРЫТАЯ НЕНАВИСТЬ К JS
+
 $(document).ready(function() {
   $("#app-link").click(function() {
     console.log("press app");
