@@ -6,13 +6,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-<ui:insert name="head">
-    <h:head>
-        <title>Layout</title>
-    </h:head>
-</ui:insert>
-<h:body>
+<h:head>
+    <title><ui:insert name="title">no title</ui:insert></title>
     <h:outputStylesheet library="css" name="styles.css"/>
+</h:head>
+<h:body>
     <ui:insert name="header">
         header
     </ui:insert>

@@ -26,7 +26,8 @@
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>go</from-outcome>
+            <from-action>#{navigationBean.go()}</from-action>
+            <from-outcome>app</from-outcome>
             <to-view-id>/app.xhtml</to-view-id>
         </navigation-case>
 
@@ -35,7 +36,8 @@
     <navigation-rule>
         <from-view-id>/app.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>go</from-outcome>
+            <from-action>#{navigationBean.go()}</from-action>
+            <from-outcome>index</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
