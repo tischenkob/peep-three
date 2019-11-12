@@ -8,11 +8,7 @@
 <h:body>
     <ui:composition template="WEB-INF/template/layout.xhtml">
         <ui:define name="header">
-            <div id="info-panel">
-                <div class="info-bubble">P3200 - 200023</div>
-                <div class="info-bubble">Borisenko</div>
-                <div class="info-bubble">Tischenko</div>
-            </div>
+            <ui:include src="WEB-INF/template/info.xhtml"/>
         </ui:define>
         <ui:define name="left-pane">
             <ui:include src="WEB-INF/template/clock.xhtml"/>

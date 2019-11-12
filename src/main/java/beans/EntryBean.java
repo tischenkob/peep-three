@@ -8,6 +8,13 @@ public class EntryBean implements Serializable {
     private double r;
     private boolean hit;
 
+    public EntryBean(double x, double y, double r, boolean hit) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.hit = hit;
+    }
+
     public EntryBean() {
     }
 

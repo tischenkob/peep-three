@@ -2,6 +2,14 @@ package main.java.db;
 
 import java.sql.Connection;
 
-abstract class DatabaseConnector {
+class DatabaseConnector {
     Connection connection;
+
+    {
+        //TODO здесь подключение к базе
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
 }

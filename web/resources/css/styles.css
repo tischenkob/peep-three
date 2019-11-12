@@ -34,6 +34,7 @@ html {
 
 .base-button {
     display: flex;
+    margin: 15px;
     width: 75%;
     height: 64px;
     background-color: var(--alt-background-color);
@@ -132,6 +133,7 @@ body {
     align-items: center;
     width: 100%;
 }
+
 
 /* table */
 
