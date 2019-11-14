@@ -30,8 +30,9 @@ public class HistoryBean implements Serializable {
     }
 
     public void addEntry(EntryBean entryBean) throws SQLException {
-        DatabaseInserter databaseInserter = new DatabaseInserter();
-        databaseInserter.addEntry(entryBean);
+        // DatabaseInserter databaseInserter = new DatabaseInserter();
+        // databaseInserter.addEntry(entryBean);
         history.add(entryBean);
+        System.out.println("added" + entryBean.getX());
     }
 }

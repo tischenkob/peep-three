@@ -8,8 +8,8 @@ import java.util.List;
 public class DatabaseExtractor {
 
     {
-        DatabaseConnector connector = new DatabaseConnector();
-        Connection connection = connector.getConnection();
+        //DatabaseConnector connector = new DatabaseConnector();
+        // Connection connection = connector.getConnection();
     }
 
     public List<EntryBean> getHistoryList() {

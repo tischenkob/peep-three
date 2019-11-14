@@ -6,17 +6,18 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 class DatabaseConnector {
-    @Resource(name = "jdbc/root")
+    // @Resource(name = "jdbc/root")
     DataSource dataSource;
     private Connection connection;
     {
         //TODO здесь подключение к базе
-        try {
-            connection = dataSource.getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            connection = dataSource.getConnection();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
+
 
     public Connection getConnection() {
         return connection;

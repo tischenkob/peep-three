@@ -15,6 +15,7 @@ $(document).ready(() => {
 
     let yField = document.getElementById("y-field");
     let hasSign = false;
+
     yField.onkeypress = function (e) {
         if (e.key === "Enter") {
             return false;

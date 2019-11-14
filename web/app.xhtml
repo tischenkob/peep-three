@@ -22,7 +22,8 @@
             <div class="row">
                 <h:link outcome="home" value="home"/>
                 <h:commandButton type="button" id="table-toggle" value="table"/>
-                <h:commandButton type="button" id="submit-button" action="#{historyBean.addEntry(entryBean)}"/>
+                <h:commandButton type="button" id="submit-button" action="#{historyBean.addEntry(entryBean)}"
+                                 value="submit"/>
             </div>
             <ui:include src="/WEB-INF/template/table.xhtml"/>
         </ui:define>
