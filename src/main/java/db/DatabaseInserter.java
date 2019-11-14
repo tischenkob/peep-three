@@ -10,14 +10,13 @@ import java.sql.SQLException;
 
 public class DatabaseInserter {
     private PreparedStatement addStatement;
-    private String addStatementString =
-            "INSERT INTO s265063.entries(session_id, x, y, r, hit)" +
-                    " values(?, ?, ?, ?, ?)";
 
     {
         DatabaseConnector connector = new DatabaseConnector();
         Connection connection = connector.getConnection();
         try {
+            String addStatementString = "INSERT INTO s265063.entries(session_id, x, y, r, hit)" +
+                    " values(?, ?, ?, ?, ?)";
             addStatement = connection.prepareStatement(addStatementString);
         } catch (SQLException e) {
             System.err.println("Couldn't prepare statement");

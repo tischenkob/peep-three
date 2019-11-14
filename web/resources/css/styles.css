@@ -30,6 +30,14 @@ html {
     visibility: hidden;
 }
 
+.not-displayed {
+    display: none;
+}
+
+.row {
+    display: flex;
+}
+
 /*buttons*/
 
 .base-button {
@@ -137,3 +145,5 @@ body {
 
 /* table */
 
+
+/* graph */

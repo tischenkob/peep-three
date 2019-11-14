@@ -7,7 +7,8 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <f:metadata>
-        <f:viewAction action="#{historyBean.populate}"/>
+        <f:viewAction action="#{historyBean.extractHistory}"/>
+        <!--        <f:viewAction action="#{}"/>-->
     </f:metadata>
 </h:head>
 <h:body>
@@ -18,7 +19,15 @@
         </ui:define>
         <ui:define name="right-pane">
             <ui:include src="WEB-INF/template/controls.xhtml"/>
+            <div class="row">
+                <h:link outcome="home" value="home"/>
+                <h:commandButton type="button" id="table-toggle" value="table"/>
+                <h:commandButton type="button" id="submit-button" action="#{historyBean.addEntry(entryBean)}"/>
+            </div>
             <ui:include src="/WEB-INF/template/table.xhtml"/>
+        </ui:define>
+        <ui:define name="script">
+            <h:outputScript library="js" name="app.js"/>
         </ui:define>
     </ui:composition>
 </h:body>

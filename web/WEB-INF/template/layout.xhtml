@@ -29,7 +29,9 @@
         </div>
     </ui:insert>
     <h:outputScript library="js" name="jquery.js"/>
-    <h:outputScript library="js" name="index.js"/>
+    <ui:insert name="script">
+        <h:outputScript library="js" name="index.js"/>
+    </ui:insert>
 </h:body>
 
 </html>

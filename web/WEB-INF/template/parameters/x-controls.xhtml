@@ -5,20 +5,22 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputText value="X" styleClass="thTitle"/>
-    <h:inputHidden id="valueX" value="#{entryBean.x}"/>
-    <h:panelGrid id="x" columns="10" styleClass="column">
-        <h:commandLink id="x1" value="-3" styleClass="buttonR buttonX"/>
-        <h:commandLink id="x2" value="-2" styleClass="buttonR buttonX"/>
-        <h:commandLink id="x3" value="-1" styleClass="buttonR buttonX"/>
-        <h:commandLink id="x4" value="0" styleClass="buttonR buttonX"/>
-        <h:commandLink id="x5" value="1" styleClass="buttonR buttonX"/>
-        <h:commandLink id="x6" value="2" styleClass="buttonR buttonX"/>
-        <h:commandLink id="x7" value="3" styleClass="buttonR buttonX"/>
-        <h:commandLink id="x8" value="4" styleClass="buttonR buttonX"/>
-        <h:commandLink id="x9" value="5" styleClass="buttonR buttonX"/>
+<div class="row">
+    <h:outputText id="x-value" value="X"/>
+    <h:inputHidden id="x-hidden" value="#{entryBean.x}"/>
+    <h:panelGrid id="x" columns="10">
+        <h:commandLink class="x-link" value="-3"/>
+        <h:commandLink class="x-link" value="-2"/>
+        <h:commandLink class="x-link" value="-1"/>
+        <h:commandLink class="x-link" value="0"/>
+        <h:commandLink class="x-link" value="1"/>
+        <h:commandLink class="x-link" value="2"/>
+        <h:commandLink class="x-link" value="3"/>
+        <h:commandLink class="x-link" value="4"/>
+        <h:commandLink class="x-link" value="5"/>
         <h:outputText id="errorX" title="Выберите одно из значений!" value="!" style="color:red"/>
     </h:panelGrid>
-</f:view>
+</div>
+
+
 </html>

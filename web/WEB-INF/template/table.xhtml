@@ -9,7 +9,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://java.sun.com/jsf/html">
 
 <h:body>
-    <p:dataTable id="entryList" value="#{historyBean.history}" var="entry">
+    <p:dataTable styleClass="not-displayed" id="entryList" value="#{historyBean.history}" var="entry">
         <p:column id="x" headerText="X">
             <h:outputText value="#{entry.x}"/>
         </p:column>

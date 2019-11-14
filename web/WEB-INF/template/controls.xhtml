@@ -5,16 +5,17 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:body>
-    <div class="variable">
-        <ui:include src="./parameters/x-controls.xhtml"/>
+<h:form>
+    <div id="controls">
+        <div class="variable">
+            <ui:include src="./parameters/x-controls.xhtml"/>
+        </div>
+        <div class="variable">
+            <ui:include src="./parameters/y-controls.xhtml"/>
+        </div>
+        <div class="variable">
+            <ui:include src="./parameters/r-controls.xhtml"/>
+        </div>
     </div>
-    <div class="variable">
-        <ui:include src="./parameters/y-controls.xhtml"/>
-    </div>
-    <div class="variable">
-        <ui:include src="./parameters/r-controls.xhtml"/>
-    </div>
-    <h:link outcome="home" value="home"/>
-</h:body>
+</h:form>
 </html>
