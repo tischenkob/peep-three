@@ -9,6 +9,9 @@
     <h:outputText value="Y"/>
     <h:inputText id="y-field" title="y" maxlength="15"
                  value="#{entryBean.y}" required="true">
+        <!-- А еще здесь форматер для замены запятой должен быть -->
+        <f:converter converterId="javax.faces.Double"/>
+        <f:validateDoubleRange minimum="-3" maximum="3"/>
     </h:inputText>
 </f:view>
 </html>
