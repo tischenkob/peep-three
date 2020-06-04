@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+/* base */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: Rubik, Helvetica, sans-serif;
+}
+
+html {
+    background-color: var(--background-color);
+}
+
+/*colors*/
+
+:root {
+    --background-color: #EDEEF0;
+    --alt-background-color: #5B88BD;
+    --text-color: rgb(53, 53, 53);
+    --primary-color: #FFFFFF;
+    --accent-color: #7D9CB8;
+    --error-color: #F15C44;
+}
+
+/* utility */
+
+.hidden {
+    visibility: hidden;
+}
+
+.not-displayed {
+    display: none;
+}
+
+.row {
+    display: flex;
+}
+
+/*buttons*/
+
+.base-button {
+    display: flex;
+    margin: 15px;
+    width: 75%;
+    height: 64px;
+    background-color: var(--alt-background-color);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.base-button:hover {
+    cursor: pointer;
+}
+
+#app-link {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+}
+
+/*header*/
+
+#info-panel {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+}
+
+.info-bubble {
+    display: flex;
+    background-color: var(--primary-color);
+    margin: 20px;
+    font-size: 1.4rem;
+    width: 200px;
+    height: 50px;
+    border-radius: 7px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.205);
+    align-items: center;
+    justify-content: center;
+}
+
+/* clock */
+
+.clock {
+    color: rgb(80, 80, 80);
+    font-size: 4rem;
+    font-family: Rubik, Helvetica, sans-serif;
+
+}
+
+#date {
+    position: relative;
+    top: -20px;
+    color: rgb(80, 80, 80);
+    font-size: 1.9rem;
+    font-family: Rubik, Helvetica, sans-serif;
+}
+
+/* app */
+
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    display: inline-flex;
+    width: 700px;
+    height: 350px;
+    background-color: var(--primary-color);
+    border: 1px solid grey;
+    border-radius: 15px;
+}
+
+.pane {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#left-pane {
+    border-right: 1px solid black;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+/* table */
+
+
+/* graph */

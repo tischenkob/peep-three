@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<project name="peep-three" default="peep">
+    <target name="peep">
+        <echo>Hello, World!</echo>
+    </target>
+</project>

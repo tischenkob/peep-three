@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <f:metadata>
+        <f:viewAction action="#{historyBean.extractHistory}"/>
+        <!--        <f:viewAction action="#{}"/>-->
+    </f:metadata>
+</h:head>
+<h:body>
+    <ui:composition template="WEB-INF/template/layout.xhtml">
+        <ui:define name="header"/>
+        <ui:define name="left-pane">
+            <ui:include src="WEB-INF/template/graph.xhtml"/>
+        </ui:define>
+        <ui:define name="right-pane">
+            <ui:include src="WEB-INF/template/controls.xhtml"/>
+            <div class="row">
+                <h:link outcome="home" value="home"/>
+                <h:commandButton type="button" id="table-toggle" value="table"/>
+                <h:commandButton type="button" id="submit-button" action="#{historyBean.addEntry(entryBean)}"
+                                 value="submit"/>
+            </div>
+            <ui:include src="/WEB-INF/template/table.xhtml"/>
+        </ui:define>
+        <ui:define name="script">
+            <h:outputScript library="js" name="app.js"/>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
