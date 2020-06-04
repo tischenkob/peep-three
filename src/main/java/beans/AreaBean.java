@@ -2,13 +2,17 @@ package main.java.beans;
 
 public class AreaBean {
 
-    public boolean checkHit(EntryBean bean) {
-        double xx = bean.getX();
-        double yy = bean.getY();
-        double rr = bean.getR();
-        boolean isHit = ((xx >= 0 && yy >= 0 && xx <= rr && yy <= rr)
-                || ((Math.pow(xx, 2) + Math.pow(yy, 2) <= Math.pow(rr / 2, 2)) && xx >= 0 && yy <= 0)
-                || (xx <= 0 && yy >= 0 && yy <= (xx + rr / 2)));
+    public void processEntryBean(EntryBean bean) {
+        double x = bean.getX();
+        double y = bean.getY();
+        double r = bean.getR();
+        bean.setHit(checkHit(x, y, r));
+    }
+
+    public boolean checkHit(double x, double y, double r) {
+        boolean isHit = ((x >= 0 && y >= 0 && x <= r && y <= r)
+                || ((Math.pow(x, 2) + Math.pow(y, 2) <= Math.pow(r / 2, 2)) && x >= 0 && y <= 0)
+                || (x <= 0 && y >= 0 && y <= (x + r / 2)));
         return isHit;
     }
 }
