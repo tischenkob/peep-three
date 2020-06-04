@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <project name="peep-three" default="peep">
-    <target name="peep">
-        <echo>Hello, World!</echo>
-    </target>
+    <target name="compile"></target>
+    <target name="build"></target>
+    <target name="clean"></target>
+    <target name="test"></target>
+    <target name="doc"></target>
+    <target name="alt"></target>
 </project>
