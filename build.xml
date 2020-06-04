@@ -1,22 +1,28 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <!---->
 <project name="PeepThree" default="build">
-    <xi:include href="properties.xml" 
-        xmlns:xi="http://www.w3.org/2003/XInclude"/>
+    <xi:include href="properties.xml" xmlns:xi="http://www.w3.org/2003/XInclude" />
     <!-- define targets -->
     <!-- компиляция -->
     <target name="compile">
-        <mkdir dir="${classes}"/>
-        <javac srcdir="${src}" destdir="${classes}" includeantruntime="false"/>
+        <mkdir dir="${classes}" />
+        <javac srcdir="${src}" destdir="${classes}" includeantruntime="false" />
     </target>
     <!-- компиляция исходных кодов проекта и их упаковка в исполняемый jar-архив -->
     <target name="build" depends="compile"></target>
     <!-- удаление скомпилированных классов проекта и всех временных файлов -->
     <target name="clean">
-        <delete dir="build"/>
+        <delete dir="build" />
     </target>
     <!-- запуск junit-тестов проекта -->
-    <target name="test"></target>
+    <target name="test" depends="compile">
+        <junit>
+            <classpath>
+                <pathelement location="${classes}" />
+            </classpath>
+            <test name="testCheckHit" />
+        </junit>
+    </target>
     <!-- добавление в MANIFEST.MF MD5 и SHA-1 файлов проекта, а также генерация и добавление в архив javadoc по всем классам проекта -->
     <target name="doc"></target>
     <!-- создаёт альтернативную версию программы с измененными именами переменных и классов (используя задание replace/replaceregexp в файлах параметров) и упаковывает её в jar-архив -->
