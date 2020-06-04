@@ -1,9 +1,14 @@
 <?xml version="1.0"?>
 <project name="peep-three" default="peep">
     <target name="compile"></target>
+    <!-- компиляция исходных кодов проекта и их упаковка в исполняемый jar-архив -->
     <target name="build"></target>
+    <!-- удаление скомпилированных классов проекта и всех временных файлов -->
     <target name="clean"></target>
+    <!-- запуск junit-тестов проекта -->
     <target name="test"></target>
+    <!-- добавление в MANIFEST.MF MD5 и SHA-1 файлов проекта, а также генерация и добавление в архив javadoc по всем классам проекта -->
     <target name="doc"></target>
+    <!-- создаёт альтернативную версию программы с измененными именами переменных и классов (используя задание replace/replaceregexp в файлах параметров) и упаковывает её в jar-архив -->
     <target name="alt"></target>
 </project>
