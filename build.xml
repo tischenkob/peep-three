@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <!---->
 <project name="PeepThree" default="build">
-    <!-- define directory names-->
-    <property name="src" location="src"/>
-    <property name="build" location="build"/>
-    <property name="classes" location="${build}/classes"/>
+    <xi:include href="properties.xml" 
+        xmlns:xi="http://www.w3.org/2003/XInclude"/>
     <!-- define targets -->
+    <!-- компиляция -->
     <target name="compile">
         <mkdir dir="${classes}"/>
         <javac srcdir="${src}" destdir="${classes}" includeantruntime="false"/>
