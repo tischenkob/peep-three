@@ -6,8 +6,6 @@ import main.java.db.DatabaseInserter;
 import javax.faces.annotation.ManagedProperty;
 import java.io.Serializable;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class HistoryBean implements Serializable {
@@ -23,7 +21,7 @@ public class HistoryBean implements Serializable {
         return history;
     }
 
-    public void setHistory(List history) {
+    public void setHistory(List<EntryBean> history) {
         this.history = history;
     }
 
