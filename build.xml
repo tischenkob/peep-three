@@ -1,30 +1,84 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <!---->
-<project name="PeepThree" default="build">
-    <xi:include href="properties.xml" xmlns:xi="http://www.w3.org/2003/XInclude" />
+<project name="${project.name}" default="build">
+    <property file="build.properties" />
+
+    <path id="classpath">
+        <fileset dir="${lib.path}" includes="*.jar" />
+        <fileset dir="${src.path}" includes="*.java" />
+    </path>
+
+    <path id="classpath.test">
+        <pathelement location="lib/junit-4.13.jar" />
+        <pathelement location="lib/hamcrest-core-1.3.jar" />
+    </path>
     <!-- define targets -->
-    <!-- компиляция -->
-    <target name="compile">
-        <mkdir dir="${classes}" />
-        <javac srcdir="${src}" destdir="${classes}" includeantruntime="false" />
-    </target>
-    <!-- компиляция исходных кодов проекта и их упаковка в исполняемый jar-архив -->
-    <target name="build" depends="compile"></target>
+
     <!-- удаление скомпилированных классов проекта и всех временных файлов -->
     <target name="clean">
-        <delete dir="build" />
+        <delete dir="${build.path}" />
+        <delete dir="${temp.path}" />
+        <delete dir="${out.path}" />
     </target>
+
+    <!-- компиляция -->
+    <target name="compile" depends="clean">
+        <mkdir dir="${classes.path}" />
+        <javac srcdir="${src.path}" destdir="${classes.path}" classpathref="classpath" includeantruntime="false" />
+    </target>
+
+    <!-- компиляция исходных кодов проекта и их упаковка в исполняемый jar-архив -->
+    <target name="build" depends="prepare">
+        <war destfile="${war.path}/${project.name}.war">
+            <fileset dir="${temp.path}" />
+        </war>
+    </target>
+
+    <target name="prepare" depends="compile">
+        <copy todir="${temp.path}">
+            <fileset dir="${web.path}" />
+        </copy>
+        <copy todir="${temp.path}/WEB-INF/lib">
+            <fileset dir="${lib.path}" />
+        </copy>
+        <copy todir="${temp.path}/WEB-INF/classes/main">
+            <fileset dir="${classes.path}/main" />
+        </copy>
+    </target>
+
+
     <!-- запуск junit-тестов проекта -->
     <target name="test" depends="compile">
-        <junit>
+        <junit fork="yes" printsummary="on" haltonfailure="on">
             <classpath>
-                <pathelement location="${classes}" />
+                <path refid="classpath.test" />
+                <pathelement location="${classes.path}" />
             </classpath>
-            <test name="testCheckHit" />
+            <formatter type="plain" usefile="false" />
+            <batchtest>
+                <fileset dir="${src.path}" includes="**\*Test.java" />
+            </batchtest>
         </junit>
     </target>
     <!-- добавление в MANIFEST.MF MD5 и SHA-1 файлов проекта, а также генерация и добавление в архив javadoc по всем классам проекта -->
     <target name="doc"></target>
     <!-- создаёт альтернативную версию программы с измененными именами переменных и классов (используя задание replace/replaceregexp в файлах параметров) и упаковывает её в jar-архив -->
-    <target name="alt"></target>
+    <target name="alt">
+        <mkdir dir="${alt.src.path}" />
+        <copy todir="${alt.src.path}">
+            <fileset dir="${src}/main" />
+        </copy>
+
+        <replace file="${alt.beans.path}/EntryBean.java" token="hit" value="${alt.entryBean.hit.name}" />
+        <replace file="${alt.beans.path}/AreaBean.java" token="checkHit" value="${alt.areaBean.checkHit.name}" />
+        <replace dir="${alt.src.path}" token="HistoryBean" value="${alt.historyBean.name}">
+            <include name="**/*.java" />
+        </replace>
+        <move file="${alt.beans.path}/HistoryBean.java" tofile="${alt.beans.path}/${alt.historyBean.name}.java" />
+
+        <antcall target="build" inheritRefs="true">
+            <param name="src.path" value="${alt.src.path}" />
+            <param name="project.name" value="${alt.project.name}" />
+        </antcall>
+    </target>
 </project>
