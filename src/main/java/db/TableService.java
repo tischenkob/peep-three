@@ -12,7 +12,6 @@ public class TableService extends DatabaseChanger {
     }
 
     public void createTable(Connection connection) throws SQLException {
-        //TODO создание таблицы
         statement.execute(tableStatement);
     }
 }

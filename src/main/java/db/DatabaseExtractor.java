@@ -16,8 +16,6 @@ public class DatabaseExtractor extends DatabaseChanger {
     }
 
     public List<EntryBean> getHistoryList() throws SQLException {
-        // TODO тут добываем список точек
-
         ResultSet resultSet = statement.executeQuery(query);
 
         List<EntryBean> entries = getEntriesFrom(resultSet);

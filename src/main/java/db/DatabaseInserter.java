@@ -6,22 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-//TODO переделать под datasource injection!!!
-
 public class DatabaseInserter {
     private PreparedStatement addStatement;
-
-    {
-//        DatabaseConnector connector = new DatabaseConnector();
-//        Connection connection = connector.getConnection();
-//        try {
-//            String addStatementString = "INSERT INTO s265063.entries(session_id, x, y, r, hit)" +
-//                    " values(?, ?, ?, ?, ?)";
-//            addStatement = connection.prepareStatement(addStatementString);
-//        } catch (SQLException e) {
-//            System.err.println("Couldn't prepare statement");
-//        }
-    }
 
     public void addEntry(EntryBean entry) throws SQLException {
         fillStatement(addStatement, entry);
