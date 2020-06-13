@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.9.15
+Created-By: 1.8.0_242-b08 ()
+SHA1-Digest: 775263d2d3f12e51c94a44571566d19eede2953f
+MD5-Digest: 3fd449b0f4fcc2e353753d96f4a3a7c6
+
