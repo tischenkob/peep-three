@@ -42,7 +42,7 @@
         <antcall target="clean" />
     </target>
 
-    <target name="prepare" depends="compile">
+    <target name="prepare" depends="test">
         <copy todir="${temp.path}">
             <fileset dir="${web.path}" />
         </copy>
