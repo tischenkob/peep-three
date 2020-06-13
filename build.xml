@@ -18,20 +18,21 @@
     <target name="clean">
         <delete dir="${build.path}" />
         <delete dir="${temp.path}" />
-        <delete dir="${out.path}" />
+        <delete dir="${alt.src.path}" />
     </target>
 
     <!-- компиляция -->
-    <target name="compile" depends="clean">
+    <target name="compile">
         <mkdir dir="${classes.path}" />
         <javac srcdir="${src.path}" destdir="${classes.path}" classpathref="classpath" includeantruntime="false" />
     </target>
 
-    <!-- компиляция исходных кодов проекта и их упаковка в исполняемый jar-архив -->
+    <!-- компиляция исходных кодов проекта и их упаковка в исполняемый war-архив -->
     <target name="build" depends="prepare">
         <war destfile="${war.path}/${project.name}.war">
             <fileset dir="${temp.path}" />
         </war>
+        <antcall target="clean" />
     </target>
 
     <target name="prepare" depends="compile">
@@ -66,7 +67,7 @@
     <target name="alt">
         <mkdir dir="${alt.src.path}" />
         <copy todir="${alt.src.path}">
-            <fileset dir="${src}/main" />
+            <fileset dir="${src.path}/main" />
         </copy>
 
         <replace file="${alt.beans.path}/EntryBean.java" token="hit" value="${alt.entryBean.hit.name}" />
