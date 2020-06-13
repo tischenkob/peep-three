@@ -20,7 +20,8 @@
         <delete dir="${temp.path}" />
         <delete dir="${alt.src.path}" />
         <delete dir="${doc.path}" />
-
+        <delete dir="${out.path}" />
+        <delete dir="checksum" />
     </target>
 
     <!-- компиляция -->
@@ -39,10 +40,9 @@
                 <attribute name="SHA-1" value="${info.sha1}" />
             </manifest>
         </war>
-        <antcall target="clean" />
     </target>
 
-    <target name="prepare" depends="test">
+    <target name="prepare" depends="compile">
         <copy todir="${temp.path}">
             <fileset dir="${web.path}" />
         </copy>
@@ -56,7 +56,7 @@
 
 
     <!-- запуск junit-тестов проекта -->
-    <target name="test" depends="compile">
+    <target name="test" depends="build">
         <junit fork="yes" printsummary="off" haltonfailure="on">
             <classpath>
                 <path refid="classpath.test" />
@@ -79,12 +79,12 @@
             <fileset dir="${web.path}" />
             <fileset dir="${src.path}" />
         </checksum>
-
+        <!-- 
         <propertyfile file="build.properties">
             <entry key="info.md5" value="${info.md5}" />
             <entry key="info.sha1" value="${info.sha1}" />
         </propertyfile>
-
+        -->
         <manifest file="src/main/resources/META-INF/MANIFEST.MF">
             <attribute name="SHA1-Digest" value="${info.sha1}" />
             <attribute name="MD5-Digest" value="${info.md5}" />
@@ -100,7 +100,7 @@
     <!-- создаёт альтернативную версию программы с измененными именами переменных и классов (используя задание replace/replaceregexp в файлах параметров) и упаковывает её в jar-архив -->
     <target name="alt">
         <mkdir dir="${alt.src.path}" />
-        <copy todir="${alt.src.path}">
+        <copy todir="${alt.src.path}/main">
             <fileset dir="${src.path}/main" />
         </copy>
 
