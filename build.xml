@@ -19,6 +19,8 @@
         <delete dir="${build.path}" />
         <delete dir="${temp.path}" />
         <delete dir="${alt.src.path}" />
+        <delete dir="${doc.path}" />
+
     </target>
 
     <!-- компиляция -->
@@ -31,6 +33,11 @@
     <target name="build" depends="prepare">
         <war destfile="${war.path}/${project.name}.war">
             <fileset dir="${temp.path}" />
+            <manifest>
+                <attribute name="Specification-Version" value="${info.version}" />
+                <attribute name="MD5" value="${info.md5}" />
+                <attribute name="SHA-1" value="${info.sha1}" />
+            </manifest>
         </war>
         <antcall target="clean" />
     </target>
@@ -50,7 +57,7 @@
 
     <!-- запуск junit-тестов проекта -->
     <target name="test" depends="compile">
-        <junit fork="yes" printsummary="on" haltonfailure="on">
+        <junit fork="yes" printsummary="off" haltonfailure="on">
             <classpath>
                 <path refid="classpath.test" />
                 <pathelement location="${classes.path}" />
@@ -62,7 +69,34 @@
         </junit>
     </target>
     <!-- добавление в MANIFEST.MF MD5 и SHA-1 файлов проекта, а также генерация и добавление в архив javadoc по всем классам проекта -->
-    <target name="doc"></target>
+    <target name="doc">
+        <checksum todir="checksum" format="MD5SUM" totalproperty="info.md5" forceOverwrite="yes">
+            <fileset dir="${web.path}" />
+            <fileset dir="${src.path}" />
+        </checksum>
+
+        <checksum todir="checksum" algorithm="SHA-1" totalproperty="info.sha1" forceOverwrite="yes">
+            <fileset dir="${web.path}" />
+            <fileset dir="${src.path}" />
+        </checksum>
+
+        <propertyfile file="build.properties">
+            <entry key="info.md5" value="${info.md5}" />
+            <entry key="info.sha1" value="${info.sha1}" />
+        </propertyfile>
+
+        <manifest file="src/main/resources/META-INF/MANIFEST.MF">
+            <attribute name="SHA1-Digest" value="${info.sha1}" />
+            <attribute name="MD5-Digest" value="${info.md5}" />
+        </manifest>
+
+        <mkdir dir="${doc.path}" />
+
+        <javadoc sourcepath="${beans.path}" destdir="${doc.path}" classpath="${src.path}" author="true" version="true" use="true">
+            <fileset dir="${src.doc.path}" includes="*/*.java" />
+            <fileset dir="${src.doc.path}" includes="*.java" />
+        </javadoc>
+    </target>
     <!-- создаёт альтернативную версию программы с измененными именами переменных и классов (используя задание replace/replaceregexp в файлах параметров) и упаковывает её в jar-архив -->
     <target name="alt">
         <mkdir dir="${alt.src.path}" />
