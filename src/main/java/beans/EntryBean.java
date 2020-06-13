@@ -2,6 +2,9 @@ package main.java.beans;
 
 import java.io.Serializable;
 
+/**
+ * Contains hit fields
+ */
 public class EntryBean implements Serializable {
     private double x;
     private double y;

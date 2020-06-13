@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Contains history of hit checks
+ */
 public class HistoryBean implements Serializable {
     @ManagedProperty(value = "#{entryBean}")
     private EntryBean entryBean;
